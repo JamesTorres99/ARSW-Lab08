@@ -10,4 +10,10 @@
 
 ## *PARTE II*
 
+1. Como cada uno de los suscritos tiene que dibujar el punto del evento, se removió la responsabilidad a la función `publishPoint` y se le otorgó al callback. Esto con fin de que el suscrito que inicia el evento no dibuje el punto dos veces.
+
+![](./img/lab/2.png)
+
+## *PARTE III*
+
 1. 
