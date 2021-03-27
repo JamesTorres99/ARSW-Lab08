@@ -16,4 +16,14 @@
 
 ## *PARTE III*
 
+1. Se creó un botón que alertará al usuario que se conectó a un dibujo en específico. Además, se cubrieron los casos de valores nulos y NaN.
+
+![](./img/lab/3.png)
+
+2. Se muestran los resultados de tres instancias, las cuales dos si estan conectadas.
+
+![](./img/lab/4.png)
+
+## *PARTE IV*
+
 1. 
