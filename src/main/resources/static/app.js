@@ -17,6 +17,24 @@ var app = (function () {
         ctx.arc(point.x, point.y, 3, 0, 2 * Math.PI);
         ctx.stroke();
     };
+
+	var addPolygonToCanvas = function (points) {
+		let c2 = canvas.getContext('2d');
+		let init = false;
+		
+		c2.fillStyle = '#f00';
+        c2.beginPath();
+        points.map(function (value, index ){
+			if (!init){
+				c2.moveTo(value.x,value.y);
+				init = true;
+			} else {
+				c2.lineTo(value.x,value.y);
+			} 
+        });
+		c2.closePath();
+		c2.fill();
+	};
     
     
     var getMousePosition = function (evt) {
@@ -42,6 +60,9 @@ var app = (function () {
 				//alert("Coordenadas recibidas: "+jsonObj.x+", "+jsonObj.y);   -> Parte 1
 				addPointToCanvas(new Point(jsonObj.x, jsonObj.y));             
             });
+			stompClient.subscribe('/topic/newpolygon/'+dibujoID, function (eventbody){
+				addPolygonToCanvas(JSON.parse(eventbody.body));
+			});
         });
 
     };
@@ -71,7 +92,8 @@ var app = (function () {
 	            console.info("publishing point at "+pt);
 	
 	            //publicar el evento
-				stompClient.send("/topic/newpoint/"+dibujoID, {}, JSON.stringify(pt));
+				//stompClient.send("/topic/newpoint/"+dibujoID, {}, JSON.stringify(pt)); -> PARTE 3
+				stompClient.send("/app/newpoint/"+dibujoID, {}, JSON.stringify(pt));
 			}
         },
 

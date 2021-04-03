@@ -1,6 +1,12 @@
 #ARSW - Laboratorio 8
 #Broker de Mensajes STOMP con WebSockets + HTML5 Canvas. - Caso: Dibujo Colaborativo Web
 
+
+## Integrantes:
+
+- Eduard Arias
+- James Torres
+
 ## *PARTE I*
 
 1. Se cambió el endpoint a '/topic/newpoint'
@@ -26,4 +32,14 @@
 
 ## *PARTE IV*
 
-1. 
+1. Se agregó el broker de comunicación del servidor. La funcionalidad quedó intacta.
+
+![](./img/lab/5.png)
+
+2. Por el momento, el servidor realiza un flush de los puntos cada vez que envia a dibujar un polígono. Prueba con límite de 3 puntos
+
+![](./img/lab/6.png)
+
+3. Por último, la prueba con polígonos de 4 puntos
+
+![](./img/lab/7.png)
